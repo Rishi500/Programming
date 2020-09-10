@@ -1,0 +1,20 @@
+def binary_search(arr,key,start,end):
+    '''
+    binary_search(): returns the index of 'key' if it is present in sorted list 'arr' 
+    else returns -1
+    
+    It takes following arguments
+    arr: input list which needs to be sorted for algorithm to work properly
+    key: element to be searched in arr
+    start: start index of arr
+    end: end index of arr
+    '''
+    if start > end or arr[start]>key or arr[end]<key:
+        return -1
+    mid = (start+end)//2
+    if arr[mid]==key:
+        return mid
+    elif arr[mid]>key:
+        return binary_search(arr,key,start,mid-1)
+    else:
+        return binary_search(arr,key,mid+1,end)
